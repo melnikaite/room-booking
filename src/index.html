@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Room booking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body x-data="app()" x-init="await load()">
+<header>
+    <h1>Room booking</h1>
+</header>
+
+<div class="error" x-show="error">Error: <strong x-text="error"></strong></div>
+
+<div class="info">
+    <div>Account: <strong x-text="account"></strong></div>
+    <div>Company: <strong x-text="employee.companyId"></strong></div>
+    <div>Administrator: <strong x-text="employee.isAdministrator"></strong></div>
+</div>
+
+<table class="pure-table pure-table-bordered schedule">
+    <thead>
+    <tr>
+        <th>Hour</th>
+        <th>Company</th>
+        <th>Room</th>
+        <th>Owner</th>
+        <th>Approved</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <template x-for="slot in slots" :key="slot.key">
+        <tr>
+            <td x-text="slot.hour"></td>
+            <td x-text="slot.companyId"></td>
+            <td x-text="slot.roomId"></td>
+            <td x-text="slot.owner"></td>
+            <td x-text="slot.isApproved"></td>
+            <td>
+                <button class="pure-button pure-button-primary" @click="await book(slot)" x-show="canBook(slot)">Book</button>
+                <button class="pure-button pure-button-success" @click="await approve(slot)" x-show="canApprove(slot)">Approve</button>
+                <button class="pure-button pure-button-warning" @click="await reject(slot)" x-show="canReject(slot)">Reject</button>
+                <button class="pure-button pure-button-error" @click="await cancel(slot)" x-show="canCancel(slot)">Cancel</button>
+            </td>
+        </tr>
+    </template>
+    </tbody>
+</table>
+<div class="loading" x-show="!slots.length">Loading...</div>
+</body>
+</html>

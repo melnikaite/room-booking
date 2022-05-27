@@ -1,0 +1,70 @@
+body {
+    min-width: fit-content;
+    font-size: 1.5vw;
+}
+
+header {
+    background-image: url("../public/header.jpg");
+    background-size: contain;
+    height: 10vh;
+    display: grid;
+    place-items: center;
+    justify-content: center;
+    margin-bottom: 2vh;
+    grid-template-columns: max-content;
+}
+
+h1 {
+    font-size: min(5vw, 6vh);
+    letter-spacing: 20px;
+    color: whitesmoke;
+    text-shadow: 1px 1px 10px black;
+    margin: 0;
+}
+.error {
+    text-align: center;
+    color: rgb(202, 60, 60);
+    margin-bottom: 2vh;
+}
+
+.info {
+    text-align: center;
+    margin-bottom: 2vh;
+}
+
+.schedule {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.loading {
+    text-align: center;
+    margin-top: 2vh;
+}
+
+/* Buttons */
+.pure-button-primary,
+.pure-button-success,
+.pure-button-error,
+.pure-button-warning,
+.pure-button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.pure-button-success {
+    background: rgb(28, 184, 65);
+}
+
+.pure-button-error {
+    background: rgb(202, 60, 60);
+}
+
+.pure-button-warning {
+    background: rgb(223, 117, 20);
+}
+
+.pure-button-secondary {
+    background: rgb(66, 184, 221);
+}
